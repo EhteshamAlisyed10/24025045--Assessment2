@@ -75,14 +75,42 @@ public class Student
     public void setstudentId(){
         studentId.add(Integer.valueOf(tokens[2]));
     }
+    public void setassignment1(){
+        if(tokens.length<4){
+            assignment1.add(0.0);
+            return;}
+        if(tokens[3].equals(""))
+            tokens[3] = "0.0";
+        assignment1.add(Double.valueOf(tokens[3]));
+    }
+    public void setassignment2(){
+        if(tokens.length<5){
+            assignment2.add(0.0);
+            return;}
+        if(tokens[4].equals(""))
+            tokens[4] = "0.0";
+        assignment2.add(Double.valueOf(tokens[4]));
+    }
+    public void setassignment3(){
+        if(tokens.length<6){
+            assignment3.add(0.0);
+            return;}
+        if(tokens[5].equals(""))
+            tokens[5] = "0.0";
+        assignment3.add(Double.valueOf(tokens[5]));
+    }
     public void display(){
         System.out.println(firstLine);
+        for(int i = 0 ; i < lastNames.size() ; i++){
+            System.out.println("Name : "+lastNames.get(i)+" "+firstNames.get(i)+"  StudentId : "+studentId.get(i));
+            System.out.println("Assignment marks : "+assignment1.get(i)+" , "+assignment2.get(i)+" , "+assignment3.get(i)+
+            " \nTotal Marks : "+totalmarks.get(i)+"\n");
         }
     }
-    public static void main(String[] args){
+     public static void main(String[] args){
         Student myObj=new Student();
         myObj.readFile();
-    
+        myObj.display();
     }
 }
 
