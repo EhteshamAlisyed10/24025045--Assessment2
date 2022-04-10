@@ -125,6 +125,26 @@ public class Student
         threshold();
         }    
     }
+       public void top10MaxMin(String choice){ 
+    Map<Double,String> Topten = new HashMap<Double,String>();
+    double max = 0;
+    for(int j=0;j<totalmarks.size();j++){
+        String temp = lastNames.get(j) + " " +firstNames.get(j);      
+        Topten.put(totalmarks.get(j),temp);}
+    TreeMap<Double,String> sorted = new TreeMap<Double,String>(Topten);   
+    Set<Map.Entry<Double,String>> entryset = sorted.entrySet();
+    Map.Entry<Double,String>[] entryarray = entryset.toArray(new Map.Entry[entryset.size()]);
+    switch(choice){
+    case "max":System.out.println("Top 10 Students with Highest marks : ");
+               for(int i=sorted.size()-1,j=0;j<10;j++,i--)
+                    System.out.println((j+1)+")  Name : "+entryarray[i].getValue()+"\n    Total Marks : "+entryarray[i].getKey()+"\n");
+               break;
+    case "min":System.out.println("Top 10 Students with lowest marks : ");
+               for(int i=0;i<10;i++)
+                    System.out.println((i+1)+")  Name : "+entryarray[i].getValue()+"\n    Total Marks : "+entryarray[i].getKey()+"\n");
+               break;         
+                }
+    }
      public void displayMenu(){
         do{
         System.out.println("***************MENU***************\n1. Display All Student Details\n2. Display Marks Based on Threshold");
@@ -137,7 +157,7 @@ public class Student
         displayMenu();}
         switch(choice){
         case 1 : this.display(); break;
-        case 2 : this.threshold(); break;
+        case 2 : this.threshold(); 
             System.exit(0);
         default : System.out.println("please enter an appropriate option value."); 
         }
