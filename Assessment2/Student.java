@@ -107,10 +107,47 @@ public class Student
             " \nTotal Marks : "+totalmarks.get(i)+"\n");
         }
     }
+       public void threshold(){
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter the threshold value (0-100): ");
+        int threshold=-1;
+        try{
+            threshold = sc.nextInt();
+            while(threshold < 0 || threshold > 100 ){
+                System.out.println("Invalid input!!\nEnter a value in range (0 - 100) again :");
+                threshold = sc.nextInt(); }
+            for(int i=0;i<totalmarks.size();i++)
+                if(totalmarks.get(i)<threshold)
+                    System.out.println("Name : "+lastNames.get(i)+" "+firstNames.get(i)+"  \nTotal Marks : "+totalmarks.get(i)+"\n");
+        }
+        catch(Exception e){
+        System.out.println("Invalid input!!!\nEnter an Integer value only");
+        threshold();
+        }    
+    }
+     public void displayMenu(){
+        do{
+        System.out.println("***************MENU***************\n1. Display All Student Details\n2. Display Marks Based on Threshold");
+        System.out.print("3. Display Top 10 Highest Marks\n4. Display Top 10 Lowest Marks\n5. Exit\nEnter an option : ");
+        int choice = -1;
+        try{
+        choice = (new Scanner(System.in)).nextInt();}
+        catch(Exception e){
+        System.out.println("Enter an appropriate interger option value");
+        displayMenu();}
+        switch(choice){
+        case 1 : this.display(); break;
+        case 2 : this.threshold(); break;
+            System.exit(0);
+        default : System.out.println("please enter an appropriate option value."); 
+        }
+        }while(true);
+    }
+
      public static void main(String[] args){
         Student myObj=new Student();
         myObj.readFile();
-        myObj.display();
+       myObj.displayMenu();
     }
 }
 
