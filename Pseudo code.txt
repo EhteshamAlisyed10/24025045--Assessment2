@@ -1,0 +1,35 @@
+Algorithm-1
+Start 
+	Initialize max=0 
+
+
+
+
+
+Algorithm-2
+For menu 
+Start 
+	Print the options  for user 
+	
+		1. Display All Student Details
+		2. Display Marks Based on Threshold
+		3. Display Top 10 Highest Marks
+		4. Display Top 10 Lowest Marks
+		5. Exit
+	Allow the user to enter the option :
+		
+		if option entered is : 1
+		Print all the student details with Unit name, Student name, Student ID, Assignment marks and Total marks. 
+		
+		if option entered is : 2
+		Print the Student Names and Student marks which are less then the Threshold Value which is entered by the user.
+		
+		if option entered is : 3
+		Print the Top 10 Highest marks with their names.
+
+		if option entered is : 4 
+		Print the Top 10 Lowest marks with their names.
+
+		if option entered is : 5
+		Allow the user to exit the program.
+End		

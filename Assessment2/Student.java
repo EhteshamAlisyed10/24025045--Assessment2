@@ -107,7 +107,7 @@ public class Student
             " \nTotal Marks : "+totalmarks.get(i)+"\n");
         }
     }
-       public void threshold(){
+    public void threshold(){
         Scanner sc= new Scanner(System.in);
         System.out.println("Enter the threshold value (0-100): ");
         int threshold=-1;
@@ -125,7 +125,7 @@ public class Student
         threshold();
         }    
     }
-       public void top10MaxMin(String choice){ 
+    public void top10MaxMin(String choice){ 
     Map<Double,String> Topten = new HashMap<Double,String>();
     double max = 0;
     for(int j=0;j<totalmarks.size();j++){
@@ -145,7 +145,7 @@ public class Student
                break;         
                 }
     }
-     public void displayMenu(){
+    public void displayMenu(){
         do{
         System.out.println("***************MENU***************\n1. Display All Student Details\n2. Display Marks Based on Threshold");
         System.out.print("3. Display Top 10 Highest Marks\n4. Display Top 10 Lowest Marks\n5. Exit\nEnter an option : ");
@@ -157,18 +157,22 @@ public class Student
         displayMenu();}
         switch(choice){
         case 1 : this.display(); break;
-        case 2 : this.threshold(); 
-            System.exit(0);
+        case 2 : this.threshold(); break;
+        case 3 : this.top10MaxMin("max"); break;
+        case 4 : this.top10MaxMin("min"); break;
+        case 5 :System.out.println("Thank you :) "); 
+                System.exit(0);
         default : System.out.println("please enter an appropriate option value."); 
         }
         }while(true);
     }
-
-     public static void main(String[] args){
+    public static void main(String[] args){
         Student myObj=new Student();
         myObj.readFile();
-       myObj.displayMenu();
+        myObj.displayMenu();
     }
 }
+
+    
 
     
