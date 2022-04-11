@@ -1,35 +1,49 @@
 Algorithm-1
 Start 
-	Initialize max=0 
+	set Topten to HashMap
+    	for each element in Topten    
+		set temp as "lastnames  firstnames"
+        		set totalmarks(element), temp to Topten.key,Topten.value
+	end for
+    	set sorted toTreeMap(Topten)   
+    	set entryset as (call sorted.entrySet)
+    	set entryarray as call entryset.toArray
+    	switch(choice)
+    		case "max":   print("Top 10 Students with Highest marks : "
+               			     for last 10 elements in sorted
+                 	   		print  "Name + call entryarray.getValue() + Total Marks + call entryarray.getKey"
 
-
-
-
+    		case "min":    print "Top 10 Students with lowest marks : "
+               			     for first 10 elements in sorted
+                    			print "  Name + call entryarraygetValue + Total Marks + entryarray.getKey"
+             	end switch
+End 
 
 Algorithm-2
 For menu 
 Start 
-	Print the options  for user 
-	
+	Print	"***************MENU***************
 		1. Display All Student Details
 		2. Display Marks Based on Threshold
 		3. Display Top 10 Highest Marks
 		4. Display Top 10 Lowest Marks
 		5. Exit
-	Allow the user to enter the option :
+		Enter an option"
+	switch(user input)
+		case 1 : call display method.
+		//Print all the details with Unit name, Student Name, Student ID, Assignment marks and Total Marks.
 		
-		if option entered is : 1
-		Print all the student details with Unit name, Student name, Student ID, Assignment marks and Total marks. 
+		case 2 : call threshold method
+		//Print the Student Names and Student marks which are less then the Threshold Value which is entered by the user.
 		
-		if option entered is : 2
-		Print the Student Names and Student marks which are less then the Threshold Value which is entered by the user.
-		
-		if option entered is : 3
-		Print the Top 10 Highest marks with their names.
+		case 3 : call top10MaxMin method
+		//Print the Top 10 Highest marks with their names.
 
-		if option entered is : 4 
-		Print the Top 10 Lowest marks with their names.
+		case 4 : call top10MaxMin method
+		//Print the Top 10 Lowest marks with their names.
 
-		if option entered is : 5
-		Allow the user to exit the program.
+		case 5 : print "thank you"
+		            Exit 
+		//Allow the user to exit the program.
+	end switch	
 End		
